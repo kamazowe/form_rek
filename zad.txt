@@ -1,0 +1,42 @@
+Napisać prostą aplikację mającą za zadanie zebranie danych klienta :
+- imię
+- nazwisko
+- pesel
+- datę urodzenia
+
+a następnie wyświetlenie zebranych danych po akcji użytkownika
+(np. submit formularza, wciśnięcie przycisku, ew. po wyjściu z ostatniego pola i wykonanej poprawnej walidacji)
+* dane w modelu js przygotowane do wysłania na serwer (tj. opakowane w obiekt)
+
+1. Imię :
+- wymagane
+- minimalna ilość znaków : 1
+- maksymalna ilość znaków : 40
+* zablokowanie możliwości wprowadzania znaków innych niż litery (włącznie z polskimi)
+
+2. Nazwisko :
+- wymagane
+- minimalna ilość znaków : 1
+- maksymalna ilość znaków : 40
+* zablokowanie możliwości wprowadzania znaków innych niż litery (włącznie z polskimi)
+
+3. Pesel :
+- wymagane
+- tylko liczby
+- minimalna i maksymlana ilość znaków : 11
+- sprawdzenie sumy kontrolnej (algorytmy dostępne w internecie np. https://pl.wikipedia.org/wiki/PESEL)
+* użycie pola typu tekstowego z zablokowaniem wprowadzania znaków innych niż cyfry
+
+4. Data urodzenia :
+- pole zablokowane i uzupełnianie na podstawie wprowadzonego numeru pesel
+
+Legenda :
+
+'*' - oznacza ewentualne dodatkowe rozwiązania do wprowadzenia w aplikacji (jeśli będzie ochota i czas)
+
+Można używać do realizacji zadania frameworków itp.(tj. jQuery, React, Angular, AngularJS, VueJs itp.) 
+wszystko co pomoże w realizacji zadania. Fajnie by było żeby aplikacja była responsywna (RWD) można 
+oczywiście skorzystać z Bootstrap, Foundation, Angular Material itp.
+
+Dodatkowo prowadzić repozytorium git'owe, zakończone bądź nie zadanie
+* fajnie by było aby realizować zadanie krokowo każdy mały kolejny element w ramach jednego commita
