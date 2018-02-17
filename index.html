@@ -10,14 +10,14 @@
 <body>
         <form action="" id="form">
                 <!-- firstname -->
-                <div><label for="first_name">First name: </label><input name="first_name"  type="text"></div> 
+                <div><label for="first_name">Imie: </label><input name="first_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40."  type="text"></div> 
                 <!-- lastname -->
-                <div><label for="last_name">Last name: </label><input name="last_name"  type="text"></div>   
-                <!-- birthday -->
-                <div><label for="birthday">Birthday: </label><input name="birthday"  type="text"></div>   
+                <div><label for="last_name">Nazwisko: </label><input name="last_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40." type="text"></div>   
                 <!-- pesel -->
-                <div><label for="pesel">Pesel: </label><input name="pesel" type="text"></div>
-                <div><input value="wyslij" type="submit"></div>
+                <div><label for="pesel">Pesel: </label><input name="pesel" required data-error="Pole obowiazkowe.Tylko liczby, ilosc liczb: 11." type="text"></div>
+                <!-- birthday -->
+                <div><label for="birthday">Data Urodzenia: </label><input name="birthday" disabled  type="text"></div>   
+                <div><input value="Wyślij" type="submit"></div>
             </form>
 
     <script src="form.js"></script>
