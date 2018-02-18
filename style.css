@@ -63,19 +63,16 @@ padding: 20px 0;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     margin-bottom:10px;
-    
 }
 
 .form-row__label{
- border: 1px solid blue;
+
 
 }
 
 .form-row__input{
     
-    border: 1px solid red;
     background-color: white;
 }
 
@@ -130,10 +127,10 @@ padding: 20px 0;
         max-width: 700px;
     }
     .form-row{
-        border: 1px solid black;
+       
         
-        flex-direction: row;
-        justify-content: flex-start
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
