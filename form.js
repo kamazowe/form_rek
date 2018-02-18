@@ -1,9 +1,10 @@
+//node, arr names, arr
 
 // inputs
 
 var errorsDiv = document.querySelector("#errors");
 const form = document.forms[0];
-const fields = form.querySelectorAll('input[data-error]:not([type="submit"])');
+// const fields = form.querySelectorAll('input[data-error]:not([type="submit"])');
 
 var firstName = form[name="first_name"];
 var lastName = form[name="last_name"];
@@ -14,12 +15,12 @@ var submit = form[name="submit"];
 console.log(submit);
 
 
-var regex1 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]/;
-var regex2 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]/;
-var regex3 = /\d/;
-var regexx1 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{1,40}/y;
-var regexx2 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{1,40}/y;
-
+var regKey1 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]/;
+var regKey2 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]/;
+var regKey3 = /\d/;
+var regChange1 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{1,40}/y;
+var regChange2 = /[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{1,40}/y;
+var regChange3 = /\d{11}/y;
 // functions
 var errors = new Map();
 
@@ -34,55 +35,42 @@ function fnKeyPress(regex){
        },false);
 }
 
-function fnChange(regex){
+fnKeyPress.call(firstName,regKey1);
+fnKeyPress.call(lastName,regKey2);
+fnKeyPress.call(pesel,regKey3);
+isCorrectChange.call(firstName,regChange1);
+isCorrectChange.call(lastName,regChange2);
+isCorrectChange.call(pesel,regChange3);
+
+function isCorrectChange(regex){  
     this.addEventListener('change',function(e){
+        console.log(`test event`);
+        console.log(`name: ${this.name}`);
         e.preventDefault();
         var text = e.target.value;
         var result = regex.exec(text);
             if(result && result[0] === text){
                 console.log('dokladnie taki sam')
                 errors.delete(this.name)
+                if(this.name === 'pesel'){
+                    if( isCorrectPesel(text)){
+                    console.log(`sprawdzony pesel: OK`)
+                    birthday.value = createBirthday(text);
+                    errors.delete(this.name)
+                }else{
+                    console.log(`sprawdzony pesel: ERROR`);   
+                    errors.set(this.name,this.dataset.error)
+                    console.log(this.dataset.error)
+                } 
+            }
             }else{
                 console.log(`nie jest dokladnie taki sam`)
                 errors.set(this.name,this.dataset.error)
                 console.log(this.dataset.error)
+                ;
             }      
-       },false);
+       },false);    
 }
-
-fnKeyPress.call(firstName,regex1);
-fnKeyPress.call(lastName,regex2);
-fnKeyPress.call(pesel,regex3);
-fnChange.call(firstName,regexx1);
-fnChange.call(lastName,regexx2);
-
-////////////////////
-//pesel change zmienic tak aby bylo fnchange
-// duza fn peselvalidate > fnchange + isCorrectPesel 
-pesel.addEventListener('change',function(e){   
-     e.preventDefault();
-    var regex = /\d{11}/y;
-    var text = e.target.value;
-    var result = regex.exec(text);
-
-        if(result && result[0] === text ){
-            console.log('dokladnie taki sam reg jak tekst')
-            if( isCorrectPesel(text) ){
-                console.log(`sprawdzony pesel: OK`)
-                birthday.value = createBirthday(text);
-                errors.delete(this.name)
-            }else{
-                console.log(`sprawdzony pesel: ERROR`);   
-                errors.set(this.name,this.dataset.error)
-                console.log(this.dataset.error)
-            }
-        }else{
-            console.log(`nie jest dokladnie taki sam`)
-            errors.set(this.name,this.dataset.error)
-            console.log(this.dataset.error)
-        }
-       
-   },false);
 
 function isCorrectPesel(pesel){
     var controllValue = Number(pesel[10]);
@@ -100,15 +88,15 @@ function isCorrectPesel(pesel){
 }
 
 function createBirthday(pesel){
-    var dateBirth = pesel.slice(0,6);
-    var day = dateBirth.slice(4);
-    var year2 = dateBirth.slice(0,2);
-    var option = dateBirth.slice(2,3);
-    var codeMonth = dateBirth.slice(2,4);
-    var month;
-    var year1;
-    var year;
-    var norm;
+    const dateBirth = pesel.slice(0,6);
+    let day = dateBirth.slice(4);
+    let year2 = dateBirth.slice(0,2);
+    let option = dateBirth.slice(2,3);
+    let codeMonth = dateBirth.slice(2,4);
+    let month;
+    let year1;
+    let year;
+    let norm;
     const calcMonth = (codeMonth,norm)=>String(Number(codeMonth) - norm);
     switch(option){
         case `8`:
@@ -146,6 +134,7 @@ function createBirthday(pesel){
         month = calcMonth(codeMonth,norm);
         break;
     }
+
     year = year1.concat(year2);
 
     console.log(`${day}-${month}-${year}`);
@@ -154,8 +143,9 @@ function createBirthday(pesel){
     
 }
 
-
+    //in input names and values
 form.addEventListener('submit',function(e){
+    
     e.preventDefault();
     console.log(`form on submit`)
 
@@ -174,10 +164,10 @@ form.addEventListener('submit',function(e){
         dataToSend.append('pesel',pesel.value);
         dataToSend.append('birthday',birthday.value);
 
-        // console.log(`podglad zawartosci dataForm`)
-        // for(var [key,value] of dataToSend.entries()) {
-        //     console.log(key + ', '+ value); 
-        //  }
+        console.log(`podglad zawartosci dataForm`)
+        for(var [key,value] of dataToSend.entries()) {
+            console.log(key + ', '+ value); 
+         }
 
 }else{
     console.log(`sa bledy`);
