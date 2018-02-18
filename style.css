@@ -1,0 +1,136 @@
+/*   yellow*/
+/* #004FB6 blue */
+/* #5C596D grey */
+ html {
+    font-size: 62.5%;
+  }
+ *{
+margin:0 auto;
+padding: 0;
+box-sizing: border-box;
+ }
+ body{
+    font-family: 'Alegreya Sans', sans-serif;
+    height:100vh;
+    width: 100vw;
+    overflow:none;
+ }
+.container{
+background-color: #FFD900;
+
+height: 100%;
+width:100%;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+padding: 20px 0;
+}
+.wrapper{
+    max-width: 400px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 3px;
+    border:1px solid #004FB6;
+     width:95%; 
+
+}
+.wrapper__header{
+    margin:0;
+   min-height: 30px;
+    padding: 0 0 0 3%;
+ background-color: #004FB6;
+}
+.wrapper__header h3{
+    font-family: 'Amiko', sans-serif;
+    padding: 0 auto;
+    font-size: 3rem;
+    color:#FFD900;
+}
+.wrapper__body{
+    padding: 10px 0 ;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.form-row{
+    color:#5C596D;
+    font-size: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom:10px;
+}
+
+.form-row__label{
+
+
+}
+
+.form-row__input{
+    
+    background-color: white;
+}
+
+.form-row__input:focus{
+    background-color: white;
+    color:#004FB6;
+}
+.form-row__input--locked{
+    
+}
+
+.btn{
+
+    font-family: 'Amiko', sans-serif;
+    font-size:1.5rem;
+    background-color: #FFD900;
+    color:#004FB6;
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid #004FB6;
+}
+
+.btn:hover{
+    color:#ffffff;
+    background-color:  #004FB6;
+}
+
+.error-wrapper{
+    /* border: 1px solid black; */
+    padding: 0 10px;
+
+}
+.error-list{
+    list-style-type: none;
+    
+}
+.error-list__item{
+    margin-top: 5px;
+    color:red;
+    font-size:1.5rem;
+  
+}
+
+ /* 768px breakpoint */
+@media only screen and (min-width: 768px) {
+
+    .container{
+        background-color: #5C596D;
+}
+    .wrapper{
+        width: 50%;
+        max-width: 700px;
+    }
+    .form-row{
+       
+        
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+

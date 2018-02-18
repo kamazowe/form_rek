@@ -5,20 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Amiko&subset=latin,latin-ext' rel='stylesheet' type='text/css'>    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>  <div id="errors"></div>
         <form action="" id="form">
                 <!-- firstname -->
-                <div><label for="first_name">Imie: </label><input name="first_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40."  type="text"></div> 
+                <div class="form-row"><label class="form-row__label" for="first_name">Imie: </label><input class="form-row__input" name="first_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40."  type="text"></div> 
                 <!-- lastname -->
-                <div><label for="last_name">Nazwisko: </label><input name="last_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40." type="text"></div>   
+                <div class="form-row"><label class="form-row__label" for="last_name">Nazwisko: </label><input class="form-row__input" name="last_name" required data-error="Pole obowiazkowe.Tylko litery, ilosc znakow 1-40." type="text"></div>   
                 <!-- pesel -->
-                <div><label for="pesel">Pesel: </label><input name="pesel" required data-error="Pole obowiazkowe.Tylko liczby, ilosc liczb: 11." type="text"></div>
+                <div class="form-row"><label class="form-row__label" for="pesel">Pesel: </label><input class="form-row__input" name="pesel" required data-error="Pole obowiazkowe.Tylko liczby, ilosc liczb: 11." type="text"></div>
                 <!-- birthday -->
                 <div><label for="birthday">Data Urodzenia: </label><input name="birthday" disabled  type="text"></div>   
                 <div><input name="submit" value="Wyślij" type="submit"></div>
             </form>
+        <div class="error-wrapper" >
+            <ul id="errors" class="error-list">
+                <li class="error-list__item"><p >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe illum impedit libero debitis qui laboriosam illo aspernatur doloremque, soluta alias? cos poszlo nie tak</p></li>
+            <li class="error-list__item"><p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolorum ipsum culpa? Quia rerum ab iste suscipit placeat culpa beatae.</p></li>
+            </ul>
+           
+        </div>
+    </div>
+    </div>
+</div>
 
     <script src="form.js"></script>
     <script src="/playground/test.js"></script>
